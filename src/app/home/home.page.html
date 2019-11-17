@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Meu perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <p>Detalhes do perfil</p>
+
+    <ion-item *ngIf="user">
+      <ion-thumbnail slot="start">
+        <img [src]="user.photoURL">
+      </ion-thumbnail>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h3>{{user.displayName}}</h3>
+        </ion-text>
+        <p>{{user.email}}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <ion-list-header color="medium">
+    Editar perfil
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label position="fixed">Nome</ion-label>
+    <ion-input type="string" placeholder="Novo nome" [(ngModel)]="username"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateUsername()">Atualizar</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Imagem</ion-label>
+    <ion-input type="number" placeholder="Número de 1 a 1000" [(ngModel)]="image"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateImage()">Atualizar</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Email</ion-label>
+    <ion-input type="string" placeholder="Novo email" [(ngModel)]="email"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updateEmail()">Atualizar</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Senha</ion-label>
+    <ion-input type="string" placeholder="Nova senha" [(ngModel)]="password"></ion-input>
+    <ion-button slot="end" color="success" expand="full" (click)="updatePassword()">Atualizar</ion-button>
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-text class="error" text-center>{{error}}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-text class="error" text-center>{{linkError}}</ion-text>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer class="transition">
+  <ion-toolbar color="undefined" routerLink="/tab1">
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="undefined" (click)="logout()">
+    <ion-title>
+      Sair
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
